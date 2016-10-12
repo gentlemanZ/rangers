@@ -19,7 +19,7 @@ public class InformationFragment extends Fragment {
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateWeb(1);
+                updateWeb();
             }
         });
         return view;
@@ -34,7 +34,7 @@ public class InformationFragment extends Fragment {
 
     public interface OnItemSelectedListener {
         //public void onColorItemSelected(String link,int i);
-        public void onWebBtnClicked(int i);
+        public void onWebBtnClicked();
 
     }
 
@@ -49,8 +49,8 @@ public class InformationFragment extends Fragment {
         }
     }
 
-    public void updateWeb(int i) {
-        listener.onWebBtnClicked(i);
+    public void updateWeb() {
+        listener.onWebBtnClicked();
     }
 
 
