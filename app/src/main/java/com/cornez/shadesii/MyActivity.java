@@ -13,23 +13,26 @@ import android.webkit.WebViewFragment;
 public class MyActivity extends Activity implements
         InformationFragment.OnItemSelectedListener,MyListFragment.OnItemSelectedListener {
 
+    private int indexWiki;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
     }
-    public void onWebBtnClicked(int i){
+    public void onWebBtnClicked(){
         WebFragment wvf = new WebFragment();
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.replace(R.id.ReservedSlot,wvf);
         transaction.commit();
         fm.executePendingTransactions();
-        wvf.setWebSite(1);
+        wvf.setWebSite(indexWiki);
 
     }
     public void onColorItemSelected(String link,int index) {
+
+        indexWiki = index;
 
         //CHECK IF FRAGMENT2 EXISTS IN THIS LAYOUT
         InformationFragment fragment2 = (InformationFragment) getFragmentManager()
